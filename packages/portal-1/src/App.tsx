@@ -66,8 +66,8 @@ function App() {
           </ul>
         </nav>
       </div>
-      <div id="app-container" className="flex-auto p-2">
-        app container
+      <div id="app-container" className="flex-auto">
+        {/* app container */}
       </div>
     </div>
   )

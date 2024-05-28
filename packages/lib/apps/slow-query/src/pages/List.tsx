@@ -14,12 +14,12 @@ export function List() {
 
   return (
     <div>
-      <h1 className="text-3xl">{ctx.cfg.title ?? 'Slow Query App'}</h1>
+      <h1 className="text-3xl p-4">{ctx.cfg.title ?? 'Slow Query App'}</h1>
 
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <p className="pl-4">Loading...</p>}
       {slowQueryList && (
         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-          <thead className='text-left'>
+          <thead className="text-left">
             <tr>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Query
