@@ -10,14 +10,8 @@ export type AppConfig = {
 export type AppCtxValue = {
   // api
   api: {
-    getDatabaseList(params: { start: number; end: number }): Promise<string[]>
-
-    getSlowQueries(params: {
-      start: number
-      end: number
-      order: string
-      dbs: string[]
-    }): Promise<ISlowQuery[]>
+    getSlowQueries(params: { term: string }): Promise<ISlowQuery[]>
+    getSlowQuery(params: { id: string }): Promise<ISlowQuery>
   }
 
   // cfg

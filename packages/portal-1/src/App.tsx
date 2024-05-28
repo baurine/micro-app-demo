@@ -1,4 +1,7 @@
 import { useEffect } from 'react'
+
+import sampleData from './sample-data.json'
+
 import './App.css'
 
 // should move to utils lib
@@ -23,6 +26,15 @@ function App() {
           containerId: 'app-container',
           cfg: {
             title: 'Slow Query (Portal 1)'
+          },
+          api: {
+            getSlowQueries(params: { term: string }) {
+              return new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve(sampleData)
+                }, 2000)
+              })
+            }
           }
         })
       })
