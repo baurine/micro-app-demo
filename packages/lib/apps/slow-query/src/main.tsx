@@ -8,9 +8,11 @@ import { AppProvider } from './context-provider.tsx'
 export default function (options: AppOptions) {
   ReactDOM.createRoot(document.getElementById(options.containerId)!).render(
     <React.StrictMode>
-      <AppProvider ctxValue={options}>
-        <App />
-      </AppProvider>
+      <div id="slow-query-app-root">
+        <AppProvider ctxValue={options}>
+          <App />
+        </AppProvider>
+      </div>
     </React.StrictMode>
   )
 }

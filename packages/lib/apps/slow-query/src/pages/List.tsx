@@ -6,7 +6,7 @@ export function List() {
 
   return (
     <div>
-      <h1>{cxt.cfg.title ?? 'Slow Query App'}</h1>
+      <h1 className="text-3xl">{cxt.cfg.title ?? 'Slow Query App'}</h1>
       <Link to={'/detail'}>Go to Detail Page</Link>
     </div>
   )
