@@ -1,11 +1,11 @@
 {
-  "name": "@lib-apps/slow-query",
+  "name": "statement",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "modify": "cp -r dist/* ../../../portal-1/public/apps/slow-query",
+    "modify": "cp -r dist/* ../../../portal-1/public/apps/statement",
     "build": "tsc && vite build && pnpm modify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

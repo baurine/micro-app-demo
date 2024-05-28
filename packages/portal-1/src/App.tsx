@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   function importSlowQuery() {
-    import('/slow-query-app/lib.js?url').then((mod) => {
+    import('/apps/statement/lib.js?url').then((mod) => {
       console.log(mod)
       mod.default({ containerId: 'root' })
     })
