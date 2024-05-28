@@ -9,7 +9,12 @@ function App() {
   function importApp() {
     import('/apps/slow-query/lib.js?url').then((mod) => {
       console.log(mod)
-      mod.default({ containerId: 'root' })
+      mod.default({
+        containerId: 'root',
+        cfg: {
+          title: 'Slow Query (Portal 1)'
+        }
+      })
     })
   }
 

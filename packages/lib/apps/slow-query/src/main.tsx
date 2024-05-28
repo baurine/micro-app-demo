@@ -2,12 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { AppOptions } from './type.ts'
+import { AppProvider } from './context-provider.tsx'
 
-// startApp(options)
-export default function (options: any) {
+export default function (options: AppOptions) {
   ReactDOM.createRoot(document.getElementById(options.containerId)!).render(
     <React.StrictMode>
-      <App />
+      <AppProvider ctxValue={options}>
+        <App />
+      </AppProvider>
     </React.StrictMode>
   )
 }
