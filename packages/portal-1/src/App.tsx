@@ -31,7 +31,10 @@ function App() {
             getSlowQueries(params: { term: string }) {
               return new Promise((resolve) => {
                 setTimeout(() => {
-                  resolve(sampleData)
+                  const filteredData = sampleData.filter((s) =>
+                    s.query.includes(params.term)
+                  )
+                  resolve(filteredData)
                 }, 2000)
               })
             },

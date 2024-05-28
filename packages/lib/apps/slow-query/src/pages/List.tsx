@@ -1,20 +1,39 @@
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context'
 import { useQuery } from '@tanstack/react-query'
+import { useListUrlState } from '../list-url-state'
 
 export function List() {
   const ctx = useAppContext()
+  const { term, setTerm } = useListUrlState()
 
   const { data: slowQueryList, isLoading } = useQuery({
-    queryKey: ['slow-query', 'list'],
+    queryKey: ['slow-query', 'list', term],
     queryFn: () => {
-      return ctx.api.getSlowQueries({ term: '' })
+      return ctx.api.getSlowQueries({ term })
     }
   })
+
+  function handleSubmit(ev: any) {
+    ev.preventDefault()
+    setTerm(ev.target.term.value)
+  }
 
   return (
     <div>
       <h1 className="text-3xl p-4">{ctx.cfg.title ?? 'Slow Query App'}</h1>
+
+      <div className="p-4">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="term"
+            placeholder="Search"
+            className="p-2 w-full rounded-md border-gray-200 border shadow-sm sm:text-sm"
+            defaultValue={term}
+          />
+        </form>
+      </div>
 
       {isLoading && <p className="pl-4">Loading...</p>}
       {slowQueryList && (
