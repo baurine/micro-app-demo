@@ -26,8 +26,8 @@ function App() {
   }, [])
 
   return (
-    <div className="flex min-h-full">
-      <div className="w-40 p-2">
+    <div className="flex">
+      <div className="w-40 p-2 h-screen border">
         <h1 className="font-bold">Portal 1</h1>
         <nav>
           <ul>
