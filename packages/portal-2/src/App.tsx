@@ -16,10 +16,7 @@ function App() {
     } else if (path === '/statement') {
       import('/apps/statement/lib.js?url').then((mod) => {
         mod.default({
-          containerId: 'app-container',
-          cfg: {
-            title: 'Statement (Portal 2)'
-          }
+          containerId: 'app-container'
         })
       })
     }

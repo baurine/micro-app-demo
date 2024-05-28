@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   useEffect(() => {
     const path = window.location.pathname
-    if (path === '/slow-query') {
+    if (path.startsWith('/slow-query')) {
       import('/apps/slow-query/lib.js?url').then((mod) => {
         mod.default({
           containerId: 'app-container',
@@ -13,13 +13,10 @@ function App() {
           }
         })
       })
-    } else if (path === '/statement') {
+    } else if (path.startsWith('/statement')) {
       import('/apps/statement/lib.js?url').then((mod) => {
         mod.default({
-          containerId: 'app-container',
-          cfg: {
-            title: 'Statement (Portal 1)'
-          }
+          containerId: 'app-container'
         })
       })
     }

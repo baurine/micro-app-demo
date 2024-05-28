@@ -1,9 +1,16 @@
-import { useAppContext } from './context'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { List } from './pages/List'
+import { Detail } from './pages/Detail'
 
 function App() {
-  const cxt = useAppContext()
-
-  return <h1>{cxt.cfg.title ?? 'Slow Query App'}</h1>
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<List />} />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App
