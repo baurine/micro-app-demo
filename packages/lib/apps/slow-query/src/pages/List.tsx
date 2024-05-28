@@ -23,17 +23,19 @@ export function List() {
     <div>
       <h1 className="text-3xl p-4">{ctx.cfg.title ?? 'Slow Query App'}</h1>
 
-      <div className="p-4">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="term"
-            placeholder="Search"
-            className="p-2 w-full rounded-md border-gray-200 border shadow-sm sm:text-sm"
-            defaultValue={term}
-          />
-        </form>
-      </div>
+      {ctx.cfg.showSearch && (
+        <div className="p-4">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="term"
+              placeholder="Search"
+              className="p-2 w-full rounded-md border-gray-200 border shadow-sm sm:text-sm"
+              defaultValue={term}
+            />
+          </form>
+        </div>
+      )}
 
       {isLoading && <p className="pl-4">Loading...</p>}
       {slowQueryList && (

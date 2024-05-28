@@ -25,7 +25,8 @@ function App() {
         mod.default({
           containerId: 'app-container',
           cfg: {
-            title: 'Slow Query (Portal 1)'
+            title: 'Slow Query (Portal 1)',
+            showSearch: true
           },
           api: {
             getSlowQueries(params: { term: string }) {

@@ -5,6 +5,7 @@ interface ISlowQuery {
 
 export type AppConfig = {
   title?: string
+  showSearch?: boolean
 }
 
 export type AppCtxValue = {
