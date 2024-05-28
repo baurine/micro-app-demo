@@ -18,25 +18,33 @@ export function List() {
 
       {isLoading && <p>Loading...</p>}
       {slowQueryList && (
-        <table>
-          <thead>
+        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+          <thead className='text-left'>
             <tr>
-              <td>Query</td>
-              <td>Latency</td>
-              <td></td>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Query
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Latency
+              </th>
+              <th className="px-4 py-2"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-gray-200">
             {slowQueryList.map((s: any) => (
               <tr key={s.id}>
-                <td>{s.query}</td>
-                <td>{s.latency}</td>
-                <td>
+                <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                  {s.query}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  {s.latency}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2">
                   <Link
                     to={`/detail?id=${s.id}`}
-                    className="hover:text-blue-400"
+                    className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
                   >
-                    detail
+                    View
                   </Link>
                 </td>
               </tr>
