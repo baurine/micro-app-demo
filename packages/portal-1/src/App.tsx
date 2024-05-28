@@ -6,8 +6,8 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
-  function importSlowQuery() {
-    import('/apps/statement/lib.js?url').then((mod) => {
+  function importApp() {
+    import('/apps/slow-query/lib.js?url').then((mod) => {
       console.log(mod)
       mod.default({ containerId: 'root' })
     })
@@ -25,7 +25,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={importSlowQuery}>count is {count}</button>
+        <button onClick={importApp}>count is {count}</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
