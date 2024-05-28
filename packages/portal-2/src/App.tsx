@@ -32,7 +32,7 @@ function App() {
               return new Promise((resolve) => {
                 setTimeout(() => {
                   resolve(sampleData)
-                }, 2000)
+                }, 4000)
               })
             }
           }
