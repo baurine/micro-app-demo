@@ -1,10 +1,23 @@
 import { useEffect } from 'react'
 import './App.css'
 
+// should move to utils lib
+function loadCSS(cssFilePath: string) {
+  var head = document.getElementsByTagName('head')[0]
+
+  // Creating link element
+  var style = document.createElement('link')
+  style.href = cssFilePath
+  style.type = 'text/css'
+  style.rel = 'stylesheet'
+  head.append(style)
+}
+
 function App() {
   useEffect(() => {
     const path = window.location.pathname
     if (path === '/slow-query') {
+      loadCSS('/apps/slow-query/style.css')
       import('/apps/slow-query/lib.js?url').then((mod) => {
         mod.default({
           containerId: 'app-container',
@@ -14,6 +27,7 @@ function App() {
         })
       })
     } else if (path === '/statement') {
+      loadCSS('/apps/statement/style.css')
       import('/apps/statement/lib.js?url').then((mod) => {
         mod.default({
           containerId: 'app-container'

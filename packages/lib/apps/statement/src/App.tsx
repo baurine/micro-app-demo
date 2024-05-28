@@ -1,5 +1,5 @@
 function App() {
-  return <h1>Statement App</h1>
+  return <h1 className="text-2xl">Statement App</h1>
 }
 
 export default App

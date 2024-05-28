@@ -7,7 +7,9 @@ import './index.css'
 export default function (options: any) {
   ReactDOM.createRoot(document.getElementById(options.containerId)!).render(
     <React.StrictMode>
-      <App />
+      <div id="statement-app-root">
+        <App />
+      </div>
     </React.StrictMode>
   )
 }
