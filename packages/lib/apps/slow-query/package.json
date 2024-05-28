@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "modify": "cp -r dist/* ../../../portal-1/public/apps/slow-query",
-    "build": "tsc && vite build && pnpm modify",
+    "cp-portal-1": "cp -r dist/* ../../../portal-1/public/apps/slow-query",
+    "cp-portal-2": "cp -r dist/* ../../../portal-2/public/apps/slow-query",
+    "build": "tsc && vite build && pnpm cp-portal-1 && pnpm cp-portal-2",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
