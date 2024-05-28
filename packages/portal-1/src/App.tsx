@@ -57,6 +57,9 @@ function App() {
           containerId: 'app-container'
         })
       })
+    } else {
+      const el = document.querySelector('#app-container')
+      el!.innerHTML = `<p class="p-4">app container for ${path}</p>`
     }
   }, [])
 
@@ -74,6 +77,9 @@ function App() {
             </li>
             <li>
               <a href="/statement">Statement</a>
+            </li>
+            <li>
+              <a href="/billing">Billing</a>
             </li>
           </ul>
         </nav>
