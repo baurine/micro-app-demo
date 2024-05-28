@@ -1,39 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  function importApp() {
-    import('/apps/statement/lib.js?url').then((mod) => {
-      console.log(mod)
-      mod.default({ containerId: 'root' })
-    })
-  }
+  useEffect(() => {
+    const path = window.location.pathname
+    if (path === '/slow-query') {
+      import('/apps/slow-query/lib.js?url').then((mod) => {
+        mod.default({
+          containerId: 'app-container',
+          cfg: {
+            title: 'Slow Query (Portal 2)'
+          }
+        })
+      })
+    } else if (path === '/statement') {
+      import('/apps/statement/lib.js?url').then((mod) => {
+        mod.default({
+          containerId: 'app-container',
+          cfg: {
+            title: 'Statement (Portal 2)'
+          }
+        })
+      })
+    }
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col min-h-full">
+      <div className="p-2 border flex flex-none gap-2">
+        <h1 className="font-bold">Portal 2</h1>
+        <nav>
+          <ul className="flex gap-2">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/slow-query">Slow Query</a>
+            </li>
+            <li>
+              <a href="/statement">Statement</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={importApp}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div id="app-container" className="flex-auto p-2">
+        app container
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
