@@ -11,7 +11,7 @@ export type AppCtxValue = {
   // api
   api: {
     getSlowQueries(params: { term: string }): Promise<ISlowQuery[]>
-    getSlowQuery(params: { id: string }): Promise<ISlowQuery>
+    getSlowQuery(params: { id: number }): Promise<ISlowQuery>
   }
 
   // cfg

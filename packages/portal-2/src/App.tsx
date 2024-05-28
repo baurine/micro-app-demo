@@ -34,6 +34,14 @@ function App() {
                   resolve(sampleData)
                 }, 4000)
               })
+            },
+            getSlowQuery(params: { id: number }) {
+              return new Promise((resolve) => {
+                setTimeout(() => {
+                  const slowQuery = sampleData.find((s) => s.id === params.id)
+                  resolve(slowQuery)
+                }, 4000)
+              })
             }
           }
         })
