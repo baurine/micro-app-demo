@@ -64,6 +64,7 @@ export function List() {
                   <Link
                     to={`/detail?id=${s.id}`}
                     className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                    style={{ backgroundColor: 'var(--color-primary, #4f46e5)' }}
                   >
                     View
                   </Link>

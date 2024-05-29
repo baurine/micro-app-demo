@@ -24,6 +24,9 @@ function App() {
       import('/apps/slow-query/lib.js?url').then((mod) => {
         mod.default({
           containerId: 'app-container',
+          style: {
+            '--color-primary': '#16a34a'
+          },
           cfg: {
             title: 'Slow Query for Portal 1',
             showSearch: true
@@ -66,9 +69,9 @@ function App() {
   return (
     <div className="flex">
       <div className="w-40 p-2 h-screen border">
-        <h1 className="font-bold">Portal 1</h1>
+        <h1 className="font-bold text-green-600 pb-2">Portal 1</h1>
         <nav>
-          <ul>
+          <ul className="flex flex-col gap-2">
             <li>
               <a href="/">Home</a>
             </li>

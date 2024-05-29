@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-full">
       <div className="p-2 border flex flex-none gap-4">
-        <h1 className="font-bold">Portal 2</h1>
+        <h1 className="font-bold text-indigo-600">Portal 2</h1>
         <nav>
           <ul className="flex gap-2">
             <li>

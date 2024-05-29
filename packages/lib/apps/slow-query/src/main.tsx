@@ -24,11 +24,13 @@ export default function (options: AppOptions) {
   ReactDOM.createRoot(document.getElementById(options.containerId)!).render(
     <React.StrictMode>
       <div id="slow-query-app-root">
-        <QueryClientProvider client={queryClient}>
-          <AppProvider ctxValue={options}>
-            <App />
-          </AppProvider>
-        </QueryClientProvider>
+        <div style={options.style}>
+          <QueryClientProvider client={queryClient}>
+            <AppProvider ctxValue={options}>
+              <App />
+            </AppProvider>
+          </QueryClientProvider>
+        </div>
       </div>
     </React.StrictMode>
   )
