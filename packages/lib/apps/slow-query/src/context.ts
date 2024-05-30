@@ -1,21 +1,25 @@
 import { createContext, useContext } from 'react'
 
 interface ISlowQuery {
+  id: number
+  query: string
+  latency: number
 }
 
-export type AppConfig = {
+////////////////////////////////
+
+type AppApi = {
+  getSlowQueries(params: { term: string }): Promise<ISlowQuery[]>
+  getSlowQuery(params: { id: number }): Promise<ISlowQuery>
+}
+
+type AppConfig = {
   title?: string
   showSearch?: boolean
 }
 
 export type AppCtxValue = {
-  // api
-  api: {
-    getSlowQueries(params: { term: string }): Promise<ISlowQuery[]>
-    getSlowQuery(params: { id: number }): Promise<ISlowQuery>
-  }
-
-  // cfg
+  api: AppApi
   cfg: AppConfig
 }
 

@@ -21,3 +21,8 @@ https://github.com/baurine/micro-app-demo/assets/1284531/e50c08d5-9023-4fbd-ac90
 1. `cd packages/lib/apps/statement && pnpm build`
 1. `cd packages/portal-1 && pnpm dev`
 1. `cd packages/portal-2 && pnpm dev`
+
+### TODO
+
+- [ ] refine build script
+- [ ] generate type definition

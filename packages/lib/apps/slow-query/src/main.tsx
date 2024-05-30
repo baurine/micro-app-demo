@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import App from './App.tsx'
-import { AppOptions } from './type.ts'
+import { AppCtxValue } from './context.ts'
 import { AppProvider } from './context-provider.tsx'
 
 import './index.css'
 
-// Create a client
+type AppOptions = {
+  containerId: string
+  style?: any
+} & AppCtxValue
+
+// Create a react query client
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

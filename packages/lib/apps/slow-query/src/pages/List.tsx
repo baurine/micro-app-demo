@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { useAppContext } from '../context'
 import { useQuery } from '@tanstack/react-query'
-import { useListUrlState } from '../list-url-state'
+
+import { useListUrlState } from './list-url-state'
+import { useAppContext } from '../context'
 
 export function List() {
   const ctx = useAppContext()
@@ -52,7 +53,7 @@ export function List() {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {slowQueryList.map((s: any) => (
+            {slowQueryList.map((s) => (
               <tr key={s.id}>
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                   {s.query}

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { useAppContext } from '../context'
-import { useDetailUrlState } from '../detail-url-state'
 import { useQuery } from '@tanstack/react-query'
+
+import { useDetailUrlState } from './detail-url-state'
+import { useAppContext } from '../context'
 
 export function Detail() {
   const cxt = useAppContext()
@@ -13,18 +14,17 @@ export function Detail() {
       return cxt.api.getSlowQuery({ id })
     }
   })
-  const detail = detailData as any
 
   return (
     <div className="p-4">
       <h1 className="text-3xl">{cxt.cfg.title ?? 'Slow Query App'}</h1>
       <div className="py-4">
         {isLoading && <p>Loading...</p>}
-        {detail && (
+        {detailData && (
           <div>
-            <p>ID: {detail.id}</p>
-            <p>Query: {detail.query}</p>
-            <p>Latency: {detail.latency}</p>
+            <p>ID: {detailData.id}</p>
+            <p>Query: {detailData.query}</p>
+            <p>Latency: {detailData.latency}</p>
           </div>
         )}
       </div>
