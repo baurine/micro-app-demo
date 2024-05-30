@@ -16,7 +16,7 @@ export default defineConfig({
     },
     rollupOptions: {
       input: 'src/main.tsx',
-      // external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'react-dom/client'],
       output: {
         // format: 'system',
         // Provide global variables to use in the UMD build
